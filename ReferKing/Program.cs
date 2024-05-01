@@ -67,7 +67,8 @@ Console.ReadLine();
         currentCompare += input[targetIdx++];
 
         bool isMatched = false;
-
+        Random random = new ();
+        books.OrderBy(i => random.Next());
         foreach(var book in books)
         {
             if(book.content.Contains(currentCompare))
