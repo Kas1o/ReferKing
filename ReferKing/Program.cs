@@ -52,7 +52,7 @@ var random = new Random();
 foreach (var item in refers)
 {
     string quotePhrase = quotePhrases[random.Next(quotePhrases.Length)];
-    Console.WriteLine($"> {item.content} {quotePhrase}：{item.bookname}的第{item.idx}字");
+    Console.WriteLine($"> “{item.content}” {quotePhrase}：{item.bookname}的第{item.idx}字");
 }
 
 Console.ReadLine();
