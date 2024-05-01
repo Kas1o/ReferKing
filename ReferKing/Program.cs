@@ -1,5 +1,10 @@
 ﻿// 读取书籍
-using System.Collections.Generic;
+if(!Path.Exists("./books"))
+{
+    Console.WriteLine("缺少./books 文件夹，请在其中放置书籍txt");
+    Console.Read();
+    return;
+}
 
 List<(string bookName, string content)> books = new();
 var bookpath = Directory.GetFiles("./books");
@@ -14,6 +19,13 @@ foreach(var path in bookpath)
     }
     books.Add((bookname, content));
 }
+if(books.Count == 0)
+{
+    Console.WriteLine("./books 文件夹中缺失书籍，请在其中放置书籍txt");
+    Console.Read();
+    return;
+}
+
 
 // 获取用户输入
 retry:
