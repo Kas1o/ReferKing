@@ -56,7 +56,7 @@ foreach (var item in refers)
 }
 
 Console.ReadLine();
-(string matched, int idx, string bookname) GetLongest(string input, List < (string bookName, string content) > books){
+(string matched, int idx, string bookname) GetLongest(string input, List< (string bookName, string content) > books){
     int targetIdx = 0;
     string currentCompare = "";
 
@@ -67,8 +67,7 @@ Console.ReadLine();
         currentCompare += input[targetIdx++];
 
         bool isMatched = false;
-        Random random = new ();
-        books.OrderBy(i => random.Next());
+        books.Shuffle();
         foreach(var book in books)
         {
             if(book.content.Contains(currentCompare))
