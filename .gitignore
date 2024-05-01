@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/ReferKing/books/红楼梦.txt
+/ReferKing/books/三国演义.txt
+/ReferKing/books/西游记.txt
+/ReferKing/books/水浒全传.txt
+/ReferKing/books/现代汉语词典.txt
