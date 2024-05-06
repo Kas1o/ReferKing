@@ -110,7 +110,7 @@ static string GetNearbyChars(string x, int index)
 {
     string beforeIndex = "";
     string afterIndex = "";
-    for(int i = 0; i < 10; i++)
+    for(int i = 1; i < 10; i++)
     {
         try
         {
@@ -123,20 +123,20 @@ static string GetNearbyChars(string x, int index)
             break;
         }
     }
-    for (int i = 0; i < 10; i++)
+    for (int i = 1; i < 10; i++)
     {
         try
         {
             var tar = x[index - i];
             if (tar == '\n') break;
-            afterIndex += tar;
+            beforeIndex += tar;
         }
         catch
         {
             break;
         }
     }
-    beforeIndex =(string) beforeIndex.Reverse();
+    beforeIndex = new string(beforeIndex.Reverse().ToArray());
 
     return beforeIndex + x[index] + afterIndex;
 }
