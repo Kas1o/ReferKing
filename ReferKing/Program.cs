@@ -34,6 +34,8 @@ retry:
 var inputString = Console.ReadLine();
 if (inputString == "" || inputString == null) goto retry;
 
+Console.WriteLine("# 这行字很有文化底蕴！");
+
 string processString = (string)inputString.Clone();
 List<(string content,string bookname, int idx)> refers = new();
 
@@ -104,16 +106,39 @@ Console.ReadLine();
         }
     }
 }
-static string GetNearbyChars(string x, int n)
+static string GetNearbyChars(string x, int index)
 {
-    int start = Math.Max(0, n - 10);
-    int end = Math.Min(x.Length, n + 11);
-    int len = end - start;
+    string beforeIndex = "";
+    string afterIndex = "";
+    for(int i = 0; i < 10; i++)
+    {
+        try
+        {
+            var tar = x[index+i];
+            if (tar == '\n') break;
+            afterIndex += tar;
+        }
+        catch
+        {
+            break;
+        }
+    }
+    for (int i = 0; i < 10; i++)
+    {
+        try
+        {
+            var tar = x[index - i];
+            if (tar == '\n') break;
+            afterIndex += tar;
+        }
+        catch
+        {
+            break;
+        }
+    }
+    beforeIndex =(string) beforeIndex.Reverse();
 
-    if (len > 20)
-        return x.Substring(start, 20);
-    else
-        return x.Substring(start, len);
+    return beforeIndex + x[index] + afterIndex;
 }
 static string EncapsulateString(string b, string a)
 {
